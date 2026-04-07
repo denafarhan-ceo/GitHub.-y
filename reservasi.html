@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Reservasi Wisata</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .inline {
+            width: auto;
+        }
+
+        #preview {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Form Reservasi Wisata</h1>
+
+<form>
+
+    <!-- Hidden -->
+    <input type="hidden" name="id_partner" value="DB2026XYZ">
+
+    <!-- Password -->
+    <label>PIN 6 Digit:</label>
+    <input type="password" name="pin" pattern="[0-9]{6}" placeholder="Masukkan 6 digit" required>
+
+    <!-- Lokasi -->
+    <label>Provinsi:</label>
+    <select name="provinsi" required>
+        <option value="">-- Pilih Provinsi --</option>
+        <option>Jawa Barat</option>
+        <option>DKI Jakarta</option>
+        <option>Jawa Tengah</option>
+    </select>
+
+    <label>Kota:</label>
+    <select name="kota" required>
+        <option value="">-- Pilih Kota --</option>
+        <option>Bandung</option>
+        <option>Jakarta</option>
+        <option>Semarang</option>
+    </select>
+
+    <label>Meeting Point:</label>
+    <select name="meeting" required>
+        <option value="">-- Pilih Lokasi --</option>
+        <option>Bandara</option>
+        <option>Stasiun</option>
+        <option>Terminal</option>
+    </select>
+
+    <!-- Search -->
+    <label>Cari Destinasi:</label>
+    <input type="search" name="destinasi" placeholder=>
+
+    <!-- Date & Time -->
+    <label>Tanggal Berangkat:</label>
+    <input type="date" name="tanggal" required>
+
+    <label>Jam Kumpul:</label>
+    <input type="time" name="jam" required>
+
+    <!-- Number -->
+    <label>Jumlah Peserta (1-20):</label>
+    <input type="number" name="jumlah" min="1" max="20" required>
+
+    <!-- URL -->
+    <label>Link Media Sosial:</label>
+    <input type="url" name="sosmed" placeholder="https://instagram.com/username">
+
+    <!-- Color -->
+    <label>Warna Kaos Grup:</label>
+    <input type="color" id="warna" onchange="ubahWarna()">
+
+    <div id="preview">Preview</div>
+
+    <!-- Radio -->
+    <label>Metode Pembayaran:</label>
+    <input type="radio" name="bayar" value="full" class="inline"> Full Payment
+    <input type="radio" name="bayar" value="dp" class="inline"> DP 50%
+
+    <!-- Checkbox -->
+    <label>Fasilitas Ekstra:</label>
+    <input type="checkbox" class="inline"> Asuransi Perjalanan<br>
+    <input type="checkbox" class="inline"> Sewa Kamera<br>
+    <input type="checkbox" class="inline"> Dinner Romantis
+
+    <!-- File -->
+    <label>Upload KTP/Paspor:</label>
+    <input type="file" name="file" required>
+
+    <button type="submit">Kirim Reservasi</button>
+
+</form>
+
+<script>
+function ubahWarna() {
+    let warna = document.getElementById("warna").value;
+    document.getElementById("preview").style.backgroundColor = warna;
+}
+</script>
+
+</body>
+</html>
